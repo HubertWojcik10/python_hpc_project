@@ -6,4 +6,10 @@
 __pycache__/
 
 # data 
+/data/modified_swiss_dwellings/*.npy
+/data/modified_swiss_dwellings
+/data
 /data/*.npy
+
+# MacOs
+.DS_Store
