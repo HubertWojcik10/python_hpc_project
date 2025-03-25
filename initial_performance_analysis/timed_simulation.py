@@ -1,10 +1,11 @@
 """
-    Original simulation file. Our task is to enhance the performance of this code.
+    Timed simulation that helps us assess the time to process all floorplans (Task 2).
 """
 
 from os.path import join
 import sys
 import numpy as np
+import time
 
 def load_data(load_dir, bid):
     SIZE = 512
@@ -42,7 +43,8 @@ def summary_stats(u, interior_mask):
 
 if __name__ == '__main__':
     # Load data
-    LOAD_DIR = './data/modified_swiss_dwellings/'
+    start_time = time.time()
+    LOAD_DIR = '../data/modified_swiss_dwellings/'
     
     with open(join(LOAD_DIR, 'building_ids.txt'), 'r') as f:
         building_ids = f.read().splitlines()
@@ -76,3 +78,7 @@ if __name__ == '__main__':
     for bid, u, interior_mask in zip(building_ids, all_u, all_interior_mask):
         stats = summary_stats(u, interior_mask)
         print(f"{bid}, ", ", ".join(str(stats[k]) for k in stat_keys))
+
+    end_time = time.time()
+    total_time = round(end_time - start_time, 2)
+    print(f"TOTAL TIME OF EXECUTION FOR N={N}: {total_time}")
