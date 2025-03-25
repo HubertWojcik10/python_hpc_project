@@ -1,7 +1,3 @@
-# HPC 
-*.out
-*.err
-
 # python 
 __pycache__/
 
