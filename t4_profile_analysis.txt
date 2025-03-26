@@ -1,0 +1,55 @@
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    16                                           @profile
+    17                                           def jacobi(u, interior_mask, max_iter, atol=1e-6):
+    18         1       1877.8   1877.8      0.0      u = np.copy(u)
+    19                                               
+    20      3602       2002.5      0.6      0.0      for i in range(max_iter):
+    21                                                   # Compute average of left, right, up and down neighbors, see eq. (1)
+    22      3602    4130785.4   1146.8     62.3          u_new = 0.25 * (u[1:-1, :-2] + u[1:-1, 2:] + u[:-2, 1:-1] + u[2:, 1:-1])
+    23      3602     618065.5    171.6      9.3          u_new_interior = u_new[interior_mask]
+    24      3602    1107584.6    307.5     16.7          delta = np.abs(u[1:-1, 1:-1][interior_mask] - u_new_interior).max()
+    25      3602     761620.0    211.4     11.5          u[1:-1, 1:-1][interior_mask] = u_new_interior
+    26                                                   
+    27      3602       4454.6      1.2      0.1          if delta < atol:
+    28         1          0.8      0.8      0.0              break
+    29         1          0.3      0.3      0.0      return u
+
+4. Profile the reference jacobi function using kernprof. Explain the different parts of the function
+and how much time each part takes
+
+
+The job used for profiling is:
+
+#!/bin/bash
+#BSUB -J task3
+#BSUB -q hpc
+#BSUB -W 20
+#BSUB -R "rusage[mem=2048]"
+#BSUB -R "select[model==XeonGold6126]"
+#BSUB -o outputs/task3%J.out
+#BSUB -e errors/task3%J.err
+#BSUB -n 8
+#BSUB -R "span[hosts=1]"
+
+# use lsinfo -m to get the CPU model name
+ENV_NAME=hpc_project
+if [ ! -d "$ENV_NAME" ]; then
+    echo "Creating virtual environment "
+    virtualenv $ENV_NAME
+else
+    echo "Activating existing virtual environment "
+fi
+# Activate the virtual environment
+source $ENV_NAME/bin/activate
+
+pip install line-profiler numpy
+
+kernprof -l -v simulate.py
+
+python -m line_profiler simulate.py.lprof
+
+As seen by the results, line 22 accounts for 62% of the time consumed, followed by line 24 and 25 with 16.7% and 11.5% 
+of the time consumed respectively. Line 22 operation involves element wise multiplication and slicing. Line 24 
+computes the maximum change (delta) between the current u values and the updated u_new values. Finally, line 25 
+updates the original array u at the masked locations with the values from u_new_interior.
