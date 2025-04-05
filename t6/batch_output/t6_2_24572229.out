@@ -1,0 +1,60 @@
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 24572229: <t62> in cluster <dcc> Exited
+
+Job <t62> was submitted from host <hpclogin1> by user <s243906> in cluster <dcc> at Sat Apr  5 13:06:37 2025
+Job was executed on host(s) <2*n-62-31-15>, in queue <hpc>, as user <s243906> in cluster <dcc> at Sat Apr  5 13:06:39 2025
+</zhome/5d/a/214766> was used as the home directory.
+</zhome/5d/a/214766/python_hpc_project/t6> was used as the working directory.
+Started at Sat Apr  5 13:06:39 2025
+Terminated at Sat Apr  5 13:12:58 2025
+Results reported at Sat Apr  5 13:12:58 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -J t62                                # Job name
+#BSUB -q hpc                                # Queue name
+#BSUB -W 30                                 # Wall times
+#BSUB -R "rusage[mem=16GB]"                 # Memory request per core
+#BSUB -n 2                                  # Number of cores
+#BSUB -R "span[hosts=1]"                    # Number of nodes
+#BSUB -R "select[model == XeonGold6126]"    # CPU model
+#BSUB -o batch_output/t6_2_%J.out           # Standard output file
+#BSUB -e batch_output/t6_2_%J.err           # Standard error file
+
+# Initialize Python environment
+source /dtu/projects/02613_2025/conda/conda_init.sh
+conda activate 02613
+
+# Run Python script
+python simulate.py 50
+
+------------------------------------------------------------
+
+Exited with exit code 120.
+
+Resource usage summary:
+
+    CPU time :                                   754.48 sec.
+    Max Memory :                                 302 MB
+    Average Memory :                             181.83 MB
+    Total Requested Memory :                     32768.00 MB
+    Delta Memory :                               32466.00 MB
+    Max Swap :                                   -
+    Max Processes :                              7
+    Max Threads :                                11
+    Run time :                                   420 sec.
+    Turnaround time :                            381 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <batch_output/t6_2_24572229.err> for stderr output of this job.
+
