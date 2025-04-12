@@ -1,0 +1,69 @@
+
+--- Performance Comparison ---
+Original implementation: 59.9531 seconds
+Numba JIT implementation: 9.3730 seconds
+Speedup: 6.40x faster
+Results match: False
+
+Estimated time for all 500 floorplans: 937.30 seconds
+Estimated time for all 4571 floorplans: 8568.79 seconds
+
+Processing N floorplans with Numba implementation...
+Total processing time: 1409.4927 seconds
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 24651189: <t7_500N> in cluster <dcc> Done
+
+Job <t7_500N> was submitted from host <n-62-30-3> by user <s243896> in cluster <dcc> at Sat Apr 12 17:21:00 2025
+Job was executed on host(s) <8*n-62-31-7>, in queue <hpc>, as user <s243896> in cluster <dcc> at Sat Apr 12 17:21:00 2025
+</zhome/33/6/214764> was used as the home directory.
+</zhome/33/6/214764/python_hpc_project/t7> was used as the working directory.
+Started at Sat Apr 12 17:21:00 2025
+Terminated at Sat Apr 12 17:45:44 2025
+Results reported at Sat Apr 12 17:45:44 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -J t7_500N
+#BSUB -q hpc
+#BSUB -W 60
+#BSUB -R "rusage[mem=4096]"
+#BSUB -R "select[model==XeonGold6126]"
+#BSUB -o t7_500N_%J.out
+#BSUB -e t7_500N_%J.err
+#BSUB -n 8
+#BSUB -R "span[hosts=1]"
+
+source /dtu/projects/02613_2025/conda/conda_init.sh
+conda activate 02613
+
+python simulate.py 500
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   1486.95 sec.
+    Max Memory :                                 2177 MB
+    Average Memory :                             1665.42 MB
+    Total Requested Memory :                     32768.00 MB
+    Delta Memory :                               30591.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   1503 sec.
+    Turnaround time :                            1484 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <t7_500N_24651189.err> for stderr output of this job.
+
