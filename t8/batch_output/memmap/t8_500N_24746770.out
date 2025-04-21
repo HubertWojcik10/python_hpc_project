@@ -1,0 +1,69 @@
+
+--- Performance Comparison ---
+Original implementation: 39.3107 seconds
+CUDA implementation: 5.6427 seconds
+Speedup: 6.97x faster
+Results match: False
+
+Estimated time for all 500 floorplans: 564.27 seconds
+Estimated time for all 4571 floorplans: 5158.59 seconds
+
+Processing N floorplans with CUDA implementation...
+Total processing time: 545.6163 seconds
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 24746770: <t8_500N> in cluster <dcc> Done
+
+Job <t8_500N> was submitted from host <n-62-30-8> by user <s243896> in cluster <dcc> at Mon Apr 21 12:53:30 2025
+Job was executed on host(s) <4*n-62-12-22>, in queue <c02613>, as user <s243896> in cluster <dcc> at Mon Apr 21 12:55:19 2025
+</zhome/33/6/214764> was used as the home directory.
+</zhome/33/6/214764/python_hpc_project/t8> was used as the working directory.
+Started at Mon Apr 21 12:55:19 2025
+Terminated at Mon Apr 21 13:06:26 2025
+Results reported at Mon Apr 21 13:06:26 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/sh
+#BSUB -q c02613
+#BSUB -J t8_500N
+#BSUB -n 4
+#BSUB -R "span[hosts=1]"
+#BSUB -R "rusage[mem=1GB]"
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -W 00:30
+#BSUB -o t8_500N_%J.out
+#BSUB -e t8_500N_%J.err
+
+source /dtu/projects/02613_2025/conda/conda_init.sh
+conda activate 02613
+
+python simulate.py 500
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   596.31 sec.
+    Max Memory :                                 1975 MB
+    Average Memory :                             1792.00 MB
+    Total Requested Memory :                     4096.00 MB
+    Delta Memory :                               2121.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                7
+    Run time :                                   504 sec.
+    Turnaround time :                            776 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <t8_500N_24746770.err> for stderr output of this job.
+
