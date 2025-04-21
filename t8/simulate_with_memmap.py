@@ -1,5 +1,5 @@
 """
-    Simulate module for ex 8 - CUDA implementation.
+    Simulate module for ex 8 - CUDA implementation with memory mapping.
 """
 
 from os.path import join
@@ -7,12 +7,23 @@ import sys
 import time
 import numpy as np
 from numba import cuda
+import mmap
 
-def load_data(load_dir, bid):
+def load_data_mmap(load_dir, bid):
     SIZE = 512
     u = np.zeros((SIZE + 2, SIZE + 2))
-    u[1:-1, 1:-1] = np.load(join(load_dir, f"{bid}_domain.npy"))
-    interior_mask = np.load(join(load_dir, f"{bid}_interior.npy"))
+    
+    with open(join(load_dir, f"{bid}_domain.npy"), 'rb') as f:
+        mm = mmap.mmap(f.fileno(), 0, access=mmap.ACCESS_READ)
+        domain_data = np.load(mm)
+        u[1:-1, 1:-1] = domain_data
+        mm.close()
+    
+    with open(join(load_dir, f"{bid}_interior.npy"), 'rb') as f:
+        mm = mmap.mmap(f.fileno(), 0, access=mmap.ACCESS_READ)
+        interior_mask = np.load(mm)
+        mm.close()
+    
     return u, interior_mask
 
 def jacobi(u, interior_mask, max_iter, atol=1e-6):
@@ -34,15 +45,12 @@ def jacobi(u, interior_mask, max_iter, atol=1e-6):
 @cuda.jit
 def jacobi_kernel(u_in, u_out, interior_mask):
     """CUDA kernel that performs a single iteration of the Jacobi method."""
-    # Get thread indices
     i, j = cuda.grid(2)
     
-    # Check if the thread is within the grid bounds and it's an interior point
     if (i > 0 and i < u_in.shape[0] - 1 and 
         j > 0 and j < u_in.shape[1] - 1 and 
         interior_mask[i-1, j-1]):
         
-        # Compute new value as average of neighbors
         u_out[i, j] = 0.25 * (
             u_in[i, j-1] +    # left
             u_in[i, j+1] +    # right
@@ -97,15 +105,22 @@ def summary_stats(u, interior_mask):
         'pct_below_15': pct_below_15,
     }
 
+def load_building_ids_mmap(filename):
+    with open(filename, 'r') as f:
+        mm = mmap.mmap(f.fileno(), 0, access=mmap.ACCESS_READ)
+        content = mm.read().decode('utf-8')
+        building_ids = content.splitlines()
+        mm.close()
+    return building_ids
+
 if __name__ == '__main__':
     # configuration
     LOAD_DIR = '../data/modified_swiss_dwellings/'
     MAX_ITER = 20_000
     ABS_TOL = 1e-4
     
-    with open(join(LOAD_DIR, 'building_ids.txt'), 'r') as f:
-        building_ids = f.read().splitlines()
-
+    # Use memory mapping to load building IDs
+    building_ids = load_building_ids_mmap(join(LOAD_DIR, 'building_ids.txt'))
     TOTAL_SIZE = len(building_ids)
     
     if len(sys.argv) < 2:
@@ -113,11 +128,11 @@ if __name__ == '__main__':
     else:
         N = int(sys.argv[1])
     
-    # load N floor plans
+    # load N floor plans with memory mapping
     all_u0 = np.empty((N, 514, 514))
     all_interior_mask = np.empty((N, 512, 512), dtype='bool')
     for i, bid in enumerate(building_ids[:N]):
-        u0, interior_mask = load_data(LOAD_DIR, bid)
+        u0, interior_mask = load_data_mmap(LOAD_DIR, bid)
         all_u0[i] = u0
         all_interior_mask[i] = interior_mask
     
