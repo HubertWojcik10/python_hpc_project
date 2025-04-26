@@ -1,0 +1,68 @@
+Total time to run: 21.12
+building_id, mean_temp, std_temp, pct_above_18, pct_below_15
+10000,  14.012338788112752, 6.367431059312565, 30.941014791508444, 55.542295034537624
+10009,  11.000135812436369, 5.811144379826625, 16.6712734948236, 74.9723590310584
+10014,  14.744169941950117, 7.037733284673849, 38.26367541377415, 52.80837116508215
+10019,  14.735524480624484, 7.030325006703675, 38.14915412864569, 52.92926826787113
+10029,  10.616037322820358, 6.317331938274926, 18.25563221896085, 74.51301795448481
+Generating '/tmp/nsys-report-5485.qdstrm'
+[1/1] [0%                          ] t10_5N.nsys-rep[1/1] [0%                          ] t10_5N.nsys-rep[1/1] [===23%                      ] t10_5N.nsys-rep[1/1] [=========44%                ] t10_5N.nsys-rep[1/1] [6%                          ] t10_5N.nsys-rep[1/1] [5%                          ] t10_5N.nsys-rep[1/1] [6%                          ] t10_5N.nsys-rep[1/1] [7%                          ] t10_5N.nsys-rep[1/1] [5%                          ] t10_5N.nsys-rep[1/1] [0%                          ] t10_5N.nsys-rep[1/1] [5%                          ] t10_5N.nsys-rep[1/1] [6%                          ] t10_5N.nsys-rep[1/1] [5%                          ] t10_5N.nsys-rep[1/1] [6%                          ] t10_5N.nsys-rep[1/1] [5%                          ] t10_5N.nsys-rep[1/1] [6%                          ] t10_5N.nsys-rep[1/1] [7%                          ] t10_5N.nsys-rep[1/1] [6%                          ] t10_5N.nsys-rep[1/1] [7%                          ] t10_5N.nsys-rep[1/1] [6%                          ] t10_5N.nsys-rep[1/1] [7%                          ] t10_5N.nsys-rep[1/1] [8%                          ] t10_5N.nsys-rep[1/1] [9%                          ] t10_5N.nsys-rep[1/1] [10%                         ] t10_5N.nsys-rep[1/1] [11%                         ] t10_5N.nsys-rep[1/1] [12%                         ] t10_5N.nsys-rep[1/1] [13%                         ] t10_5N.nsys-rep[1/1] [14%                         ] t10_5N.nsys-rep[1/1] [=15%                        ] t10_5N.nsys-rep[1/1] [=16%                        ] t10_5N.nsys-rep[1/1] [=17%                        ] t10_5N.nsys-rep[1/1] [==18%                       ] t10_5N.nsys-rep[1/1] [==19%                       ] t10_5N.nsys-rep[1/1] [==20%                       ] t10_5N.nsys-rep[1/1] [==21%                       ] t10_5N.nsys-rep[1/1] [===22%                      ] t10_5N.nsys-rep[1/1] [===23%                      ] t10_5N.nsys-rep[1/1] [===24%                      ] t10_5N.nsys-rep[1/1] [====25%                     ] t10_5N.nsys-rep[1/1] [====26%                     ] t10_5N.nsys-rep[1/1] [====27%                     ] t10_5N.nsys-rep[1/1] [====28%                     ] t10_5N.nsys-rep[1/1] [=====29%                    ] t10_5N.nsys-rep[1/1] [=====30%                    ] t10_5N.nsys-rep[1/1] [=====31%                    ] t10_5N.nsys-rep[1/1] [=====32%                    ] t10_5N.nsys-rep[1/1] [======33%                   ] t10_5N.nsys-rep[1/1] [======34%                   ] t10_5N.nsys-rep[1/1] [======35%                   ] t10_5N.nsys-rep[1/1] [=======36%                  ] t10_5N.nsys-rep[1/1] [=======37%                  ] t10_5N.nsys-rep[1/1] [=======38%                  ] t10_5N.nsys-rep[1/1] [=======39%                  ] t10_5N.nsys-rep[1/1] [========40%                 ] t10_5N.nsys-rep[1/1] [========41%                 ] t10_5N.nsys-rep[1/1] [========42%                 ] t10_5N.nsys-rep[1/1] [=========43%                ] t10_5N.nsys-rep[1/1] [=========44%                ] t10_5N.nsys-rep[1/1] [=========45%                ] t10_5N.nsys-rep[1/1] [=========46%                ] t10_5N.nsys-rep[1/1] [==========47%               ] t10_5N.nsys-rep[1/1] [==========48%               ] t10_5N.nsys-rep[1/1] [==========49%               ] t10_5N.nsys-rep[1/1] [===========50%              ] t10_5N.nsys-rep[1/1] [===========51%              ] t10_5N.nsys-rep[1/1] [===========52%              ] t10_5N.nsys-rep[1/1] [===========53%              ] t10_5N.nsys-rep[1/1] [============54%             ] t10_5N.nsys-rep[1/1] [============55%             ] t10_5N.nsys-rep[1/1] [============56%             ] t10_5N.nsys-rep[1/1] [============57%             ] t10_5N.nsys-rep[1/1] [=============58%            ] t10_5N.nsys-rep[1/1] [=============59%            ] t10_5N.nsys-rep[1/1] [=============60%            ] t10_5N.nsys-rep[1/1] [==============61%           ] t10_5N.nsys-rep[1/1] [==============62%           ] t10_5N.nsys-rep[1/1] [==============63%           ] t10_5N.nsys-rep[1/1] [==============64%           ] t10_5N.nsys-rep[1/1] [===============65%          ] t10_5N.nsys-rep[1/1] [===============66%          ] t10_5N.nsys-rep[1/1] [===============67%          ] t10_5N.nsys-rep[1/1] [================68%         ] t10_5N.nsys-rep[1/1] [================69%         ] t10_5N.nsys-rep[1/1] [================70%         ] t10_5N.nsys-rep[1/1] [================71%         ] t10_5N.nsys-rep[1/1] [=================72%        ] t10_5N.nsys-rep[1/1] [=================73%        ] t10_5N.nsys-rep[1/1] [=================74%        ] t10_5N.nsys-rep[1/1] [==================75%       ] t10_5N.nsys-rep[1/1] [==================76%       ] t10_5N.nsys-rep[1/1] [========================100%] t10_5N.nsys-rep[1/1] [========================100%] t10_5N.nsys-rep
+Generated:
+    /zhome/33/6/214764/python_hpc_project/t10/t10_5N.nsys-rep
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 24808317: <t10_5N> in cluster <dcc> Done
+
+Job <t10_5N> was submitted from host <n-62-27-21> by user <s243896> in cluster <dcc> at Sat Apr 26 17:01:59 2025
+Job was executed on host(s) <4*n-62-12-22>, in queue <c02613>, as user <s243896> in cluster <dcc> at Sat Apr 26 17:02:01 2025
+</zhome/33/6/214764> was used as the home directory.
+</zhome/33/6/214764/python_hpc_project/t10> was used as the working directory.
+Started at Sat Apr 26 17:02:01 2025
+Terminated at Sat Apr 26 17:02:44 2025
+Results reported at Sat Apr 26 17:02:44 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/sh
+#BSUB -q c02613
+#BSUB -J t10_5N
+#BSUB -n 4
+#BSUB -R "span[hosts=1]"
+#BSUB -R "rusage[mem=1GB]"
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -W 00:30
+#BSUB -o t10_5N_%J.out
+#BSUB -e t10_5N_%J.err
+
+source /dtu/projects/02613_2025/conda/conda_init.sh
+conda activate 02613
+
+nsys profile -o t10_5N.txt python simulate_cupy.py 5
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   0.97 sec.
+    Max Memory :                                 -
+    Average Memory :                             -
+    Total Requested Memory :                     4096.00 MB
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              -
+    Max Threads :                                -
+    Run time :                                   0 sec.
+    Turnaround time :                            45 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <t10_5N_24808317.err> for stderr output of this job.
+
