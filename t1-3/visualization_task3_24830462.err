@@ -1,0 +1,2 @@
+/zhome/33/6/214764/python_hpc_project/t1-3/simulation_with_visualization.py:138: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
+  plt.tight_layout()
